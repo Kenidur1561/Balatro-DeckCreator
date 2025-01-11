@@ -1,10 +1,10 @@
-# Deck Creator - Balatro Custom Deck Creation Tool
+# Deck Creator Restoration Project
 
 ## Introduction
 
-Deck Creator is a small tool for the game Balatro that allows users to create, save, load, and even share custom decks.
+Deck Creator is a small tool for the game Balatro that allows users to create, save, load, and even share custom decks. And I plan to, with all of your help, make it work on the latest version!
 
-I'm open to suggestions and contributions! Please feel free to create a PR or message me on Discord.
+If you want to contribute, look for the thread we're using in the discord and see what we're working on! Feel free to submit a pull request with any more fixes. Things will be wierd, but hopefully more functional than the default fork.
 
 ## Requirements
 
