@@ -298,7 +298,7 @@ function DeckCreator.Enable(dkc)
                     card:start_materialize()
                     card:add_to_deck()
                     if card.p_edition and card.p_edition.negative then
-                        card:set_p_edition(nil, true)
+                        card:set_edition(nil, true)
                     end
                     G.jokers:emplace(card)
                     return true end
@@ -309,7 +309,7 @@ function DeckCreator.Enable(dkc)
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                     local eligible_card = pseudorandom_element(temp_pool, pseudoseed('hex'))
                     local p_edition = {polychrome = true}
-                    eligible_card:set_p_edition(p_edition, true)
+                    eligible_card:set_edition(p_edition, true)
                     check_for_unlock({type = 'have_p_edition'})
                     used_tarot:juice_up(0.3, 0.5)
                     return true end
@@ -1141,7 +1141,7 @@ function DeckCreator.Enable(dkc)
                             card = create_card((enhancement_rate >= pseudorandom(pseudoseed('stdset'..G.GAME.round_resets.ante))) and "Enhanced" or "Base", G.pack_cards, nil, nil, nil, true, nil, 'sta')
                             local p_edition_rate = G.GAME.selected_back.effect.config.standard_pack_p_edition_rate or 2
                             local p_edition = poll_p_edition('standard_p_edition'..G.GAME.round_resets.ante, p_edition_rate, true)
-                            card:set_p_edition(p_edition)
+                            card:set_edition(p_edition)
                             local seal_rate = (G.GAME.selected_back.effect.config.standard_pack_seal_rate or 20) / 100
                             local seal_poll = pseudorandom(pseudoseed('stdseal'..G.GAME.round_resets.ante))
                             if seal_rate >= seal_poll then
@@ -1339,7 +1339,7 @@ function DeckCreator.Enable(dkc)
             end
 
             local p_edition = poll_p_edition('edi'..(key_append or '')..G.GAME.round_resets.ante)
-            card:set_p_edition(p_edition)
+            card:set_edition(p_edition)
         end
         return card
     end

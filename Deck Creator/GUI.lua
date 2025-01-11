@@ -77,7 +77,7 @@ end
 function GUI.resetOpenStartingItemConfig()
     GUI.OpenStartingItemConfig = {}
     GUI.OpenStartingItemConfig.openItemType = nil
-    GUI.OpenStartingItemConfig.edition = "None"
+    GUI.OpenStartingItemConfig.p_edition = "None"
     GUI.OpenStartingItemConfig.copies = 1
     GUI.OpenStartingItemConfig.pinned = false
     GUI.OpenStartingItemConfig.eternal = false
@@ -87,7 +87,7 @@ end
 function GUI.resetOpenBannedItemConfig()
     GUI.OpenBannedItemConfig = {}
     GUI.OpenBannedItemConfig.openItemType = nil
-    GUI.OpenBannedItemConfig.edition = "None"
+    GUI.OpenBannedItemConfig.p_edition = "None"
     GUI.OpenBannedItemConfig.copies = 1
     GUI.OpenBannedItemConfig.pinned = false
     GUI.OpenBannedItemConfig.eternal = false
@@ -1072,10 +1072,10 @@ function GUI.registerGlobals()
     G.FUNCS.DeckCreatorModuleChangeOpenStartingItemConfigCopies = function(args)
         GUI.OpenStartingItemConfig.copies = args.to_val
     end
-    G.FUNCS.DeckCreatorModuleChangeOpenStartingItemConfigedition = function(args)
-        GUI.OpenStartingItemConfig.edition = string.lower(args.to_val)
-        if GUI.OpenStartingItemConfig.edition == 'holographic' then
-            GUI.OpenStartingItemConfig.edition = 'holo'
+    G.FUNCS.DeckCreatorModuleChangeOpenStartingItemConfigp_edition = function(args)
+        GUI.OpenStartingItemConfig.p_edition = string.lower(args.to_val)
+        if GUI.OpenStartingItemConfig.p_edition == 'holographic' then
+            GUI.OpenStartingItemConfig.p_edition = 'holo'
         end
     end
     G.FUNCS.DeckCreatorModuleAddCardChangeRank = function(args)
@@ -1093,11 +1093,11 @@ function GUI.registerGlobals()
             end
         end ]]
     end
-    G.FUNCS.DeckCreatorModuleAddCardChangeedition = function(args)
-        GUI.addCard.edition = args.to_val
-        GUI.addCard.editionKey = string.lower(args.to_val)
-        if GUI.addCard.editionKey == 'holographic' then
-            GUI.addCard.editionKey = 'holo'
+    G.FUNCS.DeckCreatorModuleAddCardChangep_edition = function(args)
+        GUI.addCard.p_edition = args.to_val
+        GUI.addCard.p_editionKey = string.lower(args.to_val)
+        if GUI.addCard.p_editionKey == 'holographic' then
+            GUI.addCard.p_editionKey = 'holo'
         end
     end
     G.FUNCS.DeckCreatorModuleAddCardChangeEnhancement = function(args)
@@ -1120,8 +1120,8 @@ function GUI.registerGlobals()
     G.FUNCS.DeckCreatorModuleChangeRandomFoilCards = function(args)
         Utils.getCurrentEditingDeck().config.random_foil_cards = args.to_val
     end
-    G.FUNCS.DeckCreatorModuleChangeRandomeditionCards = function(args)
-        Utils.getCurrentEditingDeck().config.random_edition_cards = args.to_val
+    G.FUNCS.DeckCreatorModuleChangeRandomp_editionCards = function(args)
+        Utils.getCurrentEditingDeck().config.random_p_edition_cards = args.to_val
     end
     G.FUNCS.DeckCreatorModuleChangeRandomBonusCards = function(args)
         Utils.getCurrentEditingDeck().config.random_bonus_cards = args.to_val
@@ -1172,8 +1172,8 @@ function GUI.registerGlobals()
         Utils.getCurrentEditingDeck().config.skip_blind_disabled_chance_any = args.to_val
     end
 
-    G.FUNCS.DeckCreatorModuleChangeeditionRate = function(args)
-        Utils.getCurrentEditingDeck().config.edition_rate = args.to_val
+    G.FUNCS.DeckCreatorModuleChangep_editionRate = function(args)
+        Utils.getCurrentEditingDeck().config.p_edition_rate = args.to_val
     end
 
     G.FUNCS.DeckCreatorModuleChangeDiscardCost = function(args)
@@ -1264,8 +1264,8 @@ function GUI.registerGlobals()
         Utils.getCurrentEditingDeck().config.mega_standard_tag_percent = args.to_val
     end
 
-    G.FUNCS.DeckCreatorModuleChangeStandardPackeditionRate = function(args)
-        Utils.getCurrentEditingDeck().config.standard_pack_edition_rate = args.to_val
+    G.FUNCS.DeckCreatorModuleChangeStandardPackp_editionRate = function(args)
+        Utils.getCurrentEditingDeck().config.standard_pack_p_edition_rate = args.to_val
     end
 
     G.FUNCS.DeckCreatorModuleChangeStandardPackEnhancementRate = function(args)
@@ -1375,8 +1375,8 @@ function GUI.registerGlobals()
         Utils.getCurrentEditingDeck().config.deck_back_index = current_option_index
     end
 
-    G.FUNCS.DeckCreatorModuleChangeeditionCount = function(args)
-        Utils.getCurrentEditingDeck().config.edition_count = args.to_val
+    G.FUNCS.DeckCreatorModuleChangep_editionCount = function(args)
+        Utils.getCurrentEditingDeck().config.p_edition_count = args.to_val
     end
 
     G.FUNCS.DeckCreatorModuleChangeCopyFromDeck = function(args)
@@ -1709,7 +1709,7 @@ function GUI.resetAddCard()
         suitKey = "C",
         p_edition = "None",
         enhancement = "None",
-        editionKey = "",
+        p_editionKey = "",
         enhancementKey = "",
         seal = "None",
         copies = 1
@@ -1828,8 +1828,8 @@ function GUI.createAddCardsMenu()
                                                                     padding = 0.1
                                                                 },
                                                                 nodes = {
-                                                                    Helper.createOptionSelector({label = "edition", scale = 0.8, options = Utils.editions(false, true), opt_callback = 'DeckCreatorModuleAddCardChangeedition', current_option = (
-                                                                            GUI.addCard.edition
+                                                                    Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = Utils.editions(false, true), opt_callback = 'DeckCreatorModuleAddCardChangep_edition', current_option = (
+                                                                            GUI.addCard.p_edition
                                                                     )}),
                                                                 }
                                                             },
@@ -3566,8 +3566,8 @@ function GUI.addJokerMenu()
                         ), multiArrows = true, minorArrows = true })
                     }},
                     {n=G.UIT.R, config={align = "cm"}, nodes={
-                        Helper.createOptionSelector({label = "edition", scale = 0.8, options = Utils.editions(true, true), opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigedition', current_option = (
-                                GUI.OpenStartingItemConfig.edition
+                        Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = Utils.editions(true, true), opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
+                                GUI.OpenStartingItemConfig.p_edition
                         )})
                     }}
                 }
@@ -3656,8 +3656,8 @@ function GUI.addTarotMenu()
                         ), multiArrows = true, minorArrows = true })
                     }},
                     {n=G.UIT.R, config={align = "cm"}, nodes={
-                        Helper.createOptionSelector({label = "edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigedition', current_option = (
-                                GUI.OpenStartingItemConfig.edition
+                        Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
+                                GUI.OpenStartingItemConfig.p_edition
                         )})
                     }}
                 }
@@ -3731,8 +3731,8 @@ function GUI.addPlanetMenu()
                         ), multiArrows = true, minorArrows = true })
                     }},
                     {n=G.UIT.R, config={align = "cm"}, nodes={
-                        Helper.createOptionSelector({label = "edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigedition', current_option = (
-                                GUI.OpenStartingItemConfig.edition
+                        Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
+                                GUI.OpenStartingItemConfig.p_edition
                         )})
                     }}
                 }
@@ -3796,8 +3796,8 @@ function GUI.addSpectralMenu()
                         ), multiArrows = true, minorArrows = true })
                     }},
                     {n=G.UIT.R, config={align = "cm"}, nodes={
-                        Helper.createOptionSelector({label = "edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigedition', current_option = (
-                                GUI.OpenStartingItemConfig.edition
+                        Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
+                                GUI.OpenStartingItemConfig.p_edition
                         )})
                     }}
                 }
@@ -5267,8 +5267,8 @@ function GUI.initializeStaticMods()
         },
         {
             group = "Gameplay",
-            label = "edition Rate",
-            property = "edition_rate",
+            label = "p_edition Rate",
+            property = "p_edition_rate",
             options = Utils.generateBigIntegerList(),
             multiArrows = true,
             isToggle = false
@@ -5520,8 +5520,8 @@ function GUI.initializeStaticMods()
         },
         {
             group = "Booster Packs",
-            label = "Standard Pack edition Rate",
-            property = "standard_pack_edition_rate",
+            label = "Standard Pack p_edition Rate",
+            property = "standard_pack_p_edition_rate",
             options = Utils.generateBoundedIntegerList(0, 300),
             multiArrows = true,
             isToggle = false
@@ -6567,8 +6567,8 @@ function GUI.dynamicModsPageTwoColumnTwo()
             },
             nodes = {
 
-                Helper.createOptionSelector({label = "X Random Cards gain a Random edition", scale = 0.8, options = Utils.generateBigIntegerList(), opt_callback = 'DeckCreatorModuleChangeRandomeditionCards', current_option = (
-                        Utils.getCurrentEditingDeck().config.random_edition_cards
+                Helper.createOptionSelector({label = "X Random Cards gain a Random p_edition", scale = 0.8, options = Utils.generateBigIntegerList(), opt_callback = 'DeckCreatorModuleChangeRandomp_editionCards', current_option = (
+                        Utils.getCurrentEditingDeck().config.random_p_edition_cards
                 ), multiArrows = true })
             }
         },
