@@ -1338,8 +1338,8 @@ function DeckCreator.Enable(dkc)
                 end
             end
 
-            local p_edition = poll_p_edition('edi'..(key_append or '')..G.GAME.round_resets.ante)
-            card:set_edition(p_edition)
+--            local p_edition = poll_p_edition('edi'..(key_append or '')..G.GAME.round_resets.ante)
+--            card:set_edition(p_edition)
         end
         return card
     end
