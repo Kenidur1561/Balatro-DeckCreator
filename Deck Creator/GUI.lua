@@ -99,7 +99,7 @@ function GUI.registerGlobals()
     G.FUNCS.DeckCreatorModuleEmptyFunc = function() end
 
     G.FUNCS.DeckCreatorModuleOpenGithub = function()
-        love.system.openURL("https://github.com/adambennett/Balatro-DeckCreator")
+        love.system.openURL("https://github.com/Kenidur1561/Balatro-DeckCreator")
     end
 
     if ModloaderHelper.SteamoddedLoaded then
