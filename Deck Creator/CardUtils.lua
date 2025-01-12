@@ -138,7 +138,7 @@ function CardUtils.initializeCustomCardList(deckObj)
         end
         if randomizeSuits then
             local list = Utils.protoSuits()
-            suit = list[math.random(1, #list)]
+            local suit = list[math.random(1, #list)]
         end
 
         if noFaces and (rank == 'K' or rank == 'Q' or rank == 'J') then keep = false end
