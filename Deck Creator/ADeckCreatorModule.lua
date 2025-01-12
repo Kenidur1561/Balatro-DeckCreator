@@ -1,7 +1,7 @@
 --- STEAMODDED HEADER
 --- MOD_NAME: Deck Creator
 --- MOD_ID: ADeckCreatorModule
---- MOD_AUTHOR: [Nyoxide]
+--- MOD_AUTHOR: [Nyoxide, Updated by Kenidur1561 and DrWyz.]
 --- MOD_DESCRIPTION: GUI mod for creating, saving, loading, and sharing your own customizable decks!
 
 ----------------------------------------------
