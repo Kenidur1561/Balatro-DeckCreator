@@ -1828,7 +1828,7 @@ function GUI.createAddCardsMenu()
                                                                     padding = 0.1
                                                                 },
                                                                 nodes = {
-                                                                    Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = Utils.editions(false, true), opt_callback = 'DeckCreatorModuleAddCardChangep_edition', current_option = (
+                                                                    Helper.createOptionSelector({label = "Card Edition", scale = 0.8, options = Utils.editions(false, true), opt_callback = 'DeckCreatorModuleAddCardChangep_edition', current_option = (
                                                                             GUI.addCard.p_edition
                                                                     )}),
                                                                 }
@@ -3731,7 +3731,7 @@ function GUI.addPlanetMenu()
                         ), multiArrows = true, minorArrows = true })
                     }},
                     {n=G.UIT.R, config={align = "cm"}, nodes={
-                        Helper.createOptionSelector({label = "p_edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
+                        Helper.createOptionSelector({label = "Card Edition", scale = 0.8, options = { "None", "Negative", "Random" }, opt_callback = 'DeckCreatorModuleChangeOpenStartingItemConfigp_edition', current_option = (
                                 GUI.OpenStartingItemConfig.p_edition
                         )})
                     }}
