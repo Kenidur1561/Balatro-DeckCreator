@@ -1,7 +1,7 @@
 --- STEAMODDED HEADER
 --- MOD_NAME: Deck Creator
 --- MOD_ID: ADeckCreatorModule
---- MOD_AUTHOR: [Nyoxide, Updated by Kenidur1561 and DrWyz.]
+--- MOD_AUTHOR: [Nyoxide]
 --- MOD_DESCRIPTION: GUI mod for creating, saving, loading, and sharing your own customizable decks!
 
 ----------------------------------------------
@@ -36,7 +36,7 @@ if mods ~= nil then
         mod_id = "ADeckCreatorModule",
         name = "Deck Creator",
         version = "1.2.2",
-        author = "Nyoxide, Updated by Kenidur 1561 and DrWyz",
+        author = "Nyoxide",
         menu = "DeckCreatorModuleOpenMainMenu",
         description = require "Utils".modDescription(),
         enabled = true,

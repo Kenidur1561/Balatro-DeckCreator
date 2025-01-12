@@ -99,7 +99,7 @@ function GUI.registerGlobals()
     G.FUNCS.DeckCreatorModuleEmptyFunc = function() end
 
     G.FUNCS.DeckCreatorModuleOpenGithub = function()
-        love.system.openURL("https://github.com/Kenidur1561/Balatro-DeckCreator")
+        love.system.openURL("https://github.com/adambennett/Balatro-DeckCreator")
     end
 
     if ModloaderHelper.SteamoddedLoaded then
@@ -673,7 +673,7 @@ function GUI.registerGlobals()
         CardUtils.addCardToDeck({
             rank = "Random",
             suit = "Random",
-            p_edition = "Random",
+            --p_edition = "Random",
             enhancement = "Random",
             seal = "Random",
             copies = 1
@@ -2832,17 +2832,6 @@ function GUI.deckEditorPageStatic()
                             scale = 0.75 * 0.4,
                             colour = G.C.GREEN,
                             button = "DeckCreatorModuleOpenAddCardToDeck",
-                            minh = 0.8,
-                            minw = 3
-                        })
-                    }},
-                    {n=G.UIT.C, config={align = "cm", padding = 0.1}, nodes={
-                        UIBox_button({
-                            label = {" Generate Card "},
-                            shadow = true,
-                            scale = 0.75 * 0.4,
-                            colour = G.C.BOOSTER,
-                            button = "DeckCreatorModuleGenerateCard",
                             minh = 0.8,
                             minw = 3
                         })
@@ -6461,7 +6450,7 @@ function GUI.dynamicModsPageOneColumnOne()
                 padding = 0.1
             },
             nodes = {
-                create_toggle({label = "Randomize Suits", ref_table = Utils.getCurrentEditingDeck().config, ref_value = 'randomize_suits'}),
+                create_toggle({label = "Randomize Suit(Bugged)", ref_table = Utils.getCurrentEditingDeck().config, ref_value = 'randomize_suits'}),
             }
         }
     }

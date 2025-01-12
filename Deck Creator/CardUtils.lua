@@ -298,19 +298,19 @@ function CardUtils.generateCardProto(args)
 
     end
 
-    if args.p_edition == "Random" then
-        if math.random(1, 100) > 90 then
-            local list = Utils.p_editions(false)
-            local randomp_edition = list[math.random(1, #list)]
-            generatedCard.p_edition = randomp_edition
-            generatedCard.p_editionKey = randomp_edition ~= "None" and string.lower(randomp_edition) or nil
-            if generatedCard.p_editionKey and generatedCard.p_editionKey == 'holographic' then
-                generatedCard.p_editionKey = 'holo'
-            end
-        else
-            generatedCard.p_edition = "None"
-        end
-    end
+    --if args.p_edition == "Random" then
+        --if math.random(1, 100) > 90 then
+            --local list = Utils.p_editions(false)
+            --local randomp_edition = list[math.random(1, #list)]
+            --generatedCard.p_edition = randomp_edition
+            --generatedCard.p_editionKey = randomp_edition ~= "None" and string.lower(randomp_edition) or nil
+            --if generatedCard.p_editionKey and generatedCard.p_editionKey == 'holographic' then
+            --    generatedCard.p_editionKey = 'holo'
+            --end
+        --else
+            --generatedCard.p_edition = "None"
+        --end
+    --end
 
     if args.seal == "Random" then
         if math.random(1, 100) > 70 then
