@@ -99,7 +99,7 @@ function GUI.registerGlobals()
     G.FUNCS.DeckCreatorModuleEmptyFunc = function() end
 
     G.FUNCS.DeckCreatorModuleOpenGithub = function()
-        love.system.openURL("https://github.com/adambennett/Balatro-DeckCreator")
+        love.system.openURL("https://github.com/Kenidur1561/Balatro-DeckCreator")
     end
 
     if ModloaderHelper.SteamoddedLoaded then
@@ -2701,7 +2701,7 @@ function GUI.createBalamodMenu()
                                             {
                                                 n = G.UIT.T,
                                                 config = {
-                                                    text = "Nyoxide",
+                                                    text = "Nyoxide, updated by Kenidur1561 and DrWyz!",
                                                     shadow = true,
                                                     scale = scale * 0.65,
                                                     colour = G.C.BLUE,
